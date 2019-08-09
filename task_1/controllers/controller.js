@@ -4,12 +4,7 @@ var mongoose = require('mongoose');
 //Creating CRUD functionality
 
 module.exports.create = (req, res) => {
-	var model = new Model({
-		place: req.body.place,
-		type: req.body.type,
-		cost: req.body.cost,
-		itinerary: req.body.itinerary
-	});
+	var model = new Model(req.body);
 	model.save((err,doc) => {
 		if(err){
 			console.log(err);
@@ -20,7 +15,7 @@ module.exports.create = (req, res) => {
 		}
 		else{
 			res.send({
-				success: true
+				success: true,
 				doc: doc
 			});
 		}
@@ -46,8 +41,8 @@ module.exports.retrieve = (req,res) =>{
 }
 
 module.exports.retrieveAll = (req,res) =>{
-	Model.find({}, (err, doc) => {
-		if(err || !doc){
+	Model.find({}, (err, docs) => {
+		if(err || !docs){
 			console.log("Not Found");
 			res.send({
 				success: false,
@@ -64,7 +59,7 @@ module.exports.retrieveAll = (req,res) =>{
 }
 
 module.exports.update = (req,res) => {
-	Model.findByIdAndUpdate(mongoose.mongo.ObjectId(req.body.id), $set: req.body, (err,doc) => {
+	Model.findByIdAndUpdate(mongoose.mongo.ObjectId(req.body.id), {$set: req.body} , (err,doc) => {
 		if(err){
 			console.log(err);
 			res.send({
@@ -87,7 +82,7 @@ module.exports.update = (req,res) => {
 }
 
 module.exports.delete = (req,res) => {
-	Model.findByIdAndRemove(req.params.id, (err) => {
+	Model.findByIdAndRemove(mongoose.mongo.ObjectId(req.params.id), (err) => {
 		if(err){
 			console.log(err);
 			res.send({

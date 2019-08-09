@@ -9,8 +9,9 @@ var bodyParser = require('body-parser');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
+app.use('/api', require('./routes/router'));
 
-mongoose.connect('mongodb://localhost/zaaaDB', function(err){
+mongoose.connect('mongodb://localhost:27012/database', function(err){
 	if(err){
 		console.log('FAILED TO CONNECT' + err);
 	}
