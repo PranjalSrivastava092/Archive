@@ -13,4 +13,4 @@ var Schema = new mongoose.Schema({
 	}]
 });
 
-module.exports = mongoose.model('Diary', Scheme);
+module.exports = mongoose.model('Model', Scheme);
