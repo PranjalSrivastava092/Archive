@@ -9,18 +9,21 @@ import { Model } from "./models/Model.model";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
-	data: Model[];
+  data : Model;
 
 	constructor(private apiService: ApiService) {
   	}
 
-  	ngonInit(){
+  	ngOnInit(){
   		interval(10000)
   			.pipe(
-  				startwith(0),
-  				switchMap(() => this.apiService.getAll()
+  				startWith(0),
+  				switchMap(() => this.apiService.getData())
   			)
-  			.subscribe(res => this.data = res.data);
+  			.subscribe(res => {
+          this.data = res
+        });
   	}
 }

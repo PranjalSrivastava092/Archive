@@ -13,7 +13,7 @@ export class ApiService {
   }
 
   getData(): Observable<Model> {
-    return this.http.get<Model>('http://localhost:8080/getAll')
+    return this.http.get<Model>('http://localhost:8080/api/getAll')
       .pipe(
         map(res => new Model().deserialize(res))
       );

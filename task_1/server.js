@@ -9,6 +9,9 @@ var bodyParser = require('body-parser');
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json());
+app.use((req,res,next) => {
+	res.setHeader('Access-Control-Allow-Origin', '*')
+})
 app.use('/api', require('./routes/router'));
 
 mongoose.connect('mongodb://localhost:27012/database', function(err){
