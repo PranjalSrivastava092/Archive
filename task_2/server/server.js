@@ -27,7 +27,7 @@ io.on("connection", socket => {
 
   socket.on("edit", doc => {
     database[doc.id] = doc;
-    socket.to(doc.id).emit("document", doc);
+    io.emit("document", doc);
   });
 
   io.emit("documents", Object.keys(database));

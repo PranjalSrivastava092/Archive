@@ -8,6 +8,7 @@ import { DocumentService } from '../document.service';
   templateUrl: './document-list.component.html',
   styleUrls: ['./document-list.component.scss']
 })
+
 export class DocumentListComponent implements OnInit, OnDestroy {
   documents: Observable<string[]>;
   currentDoc: string;

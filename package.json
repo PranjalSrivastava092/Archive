@@ -28,6 +28,8 @@
     "morgan": "^1.9.1",
     "ngx-socket-io": "^2.1.1",
     "nodemon": "^1.19.1",
+    "rxjs": "^6.5.2",
+    "rxjs-compat": "^6.5.2",
     "socket.io": "^2.2.0",
     "typescript": "^3.5.3"
   }
