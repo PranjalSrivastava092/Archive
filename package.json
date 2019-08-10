@@ -18,6 +18,8 @@
   "homepage": "https://github.com/PranjalSrivastava092/Archive#readme",
   "dependencies": {
     "@angular/cli": "^8.2.1",
+    "@angular/core": "^8.2.1",
+    "@ng-bootstrap/ng-bootstrap": "^5.1.0",
     "@types/socket.io": "^2.1.2",
     "angular": "^1.7.8",
     "body-parser": "^1.19.0",
